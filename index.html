@@ -23,7 +23,23 @@
                 between the scores of a game and its overall sales. I will be joining the review data with sales data
                 obtained from VGChartz.</p>
         </section>
-        <section id=“data”></section>
+        <section id=“data”>
+            <h2> 2. Data </h2>
+            <p>This project uses two primary sources of data: Metacritic’s<sup>2</sup> game critic and game player review scores
+                of different games and VGChartz<sup>3</sup> data about video game sales.</p>
+            <h3> 2.1 Review Scores </h3>
+            <p>I collected data from Metacritic, which contained user (user score) and critic (meta score) review scores
+                for each game.
+                Metacritic’s data was found on 186 different web pages. I wrote a web crawling script to collect all data
+                across these 186 pages. I collected the game title, summary, platform, user score, meta score, and
+                release date for 18,526 games. Some of the results were the same game that was released on different
+                platforms, which is essential to consider when I begin merging the data. I created a data frame which is
+                contained in the Metacritic.csv file in the project folder. The web crawling script that I wrote is
+                contained in the metacritic.R file in the project folder.
+                The data didn’t need much cleaning; however, to make the platform match with the VGChartz data, I
+                created a dictionary to convert Metacritic’s platform data to match VGChartz. This cleaning was done in
+                the file combining_vgs.R.</p>
+        </section>
         <section id=“analysis”></section>
         <section id=“conclusion”></section>
     </main>
