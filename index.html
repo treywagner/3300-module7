@@ -39,6 +39,40 @@
                 The data didn’t need much cleaning; however, to make the platform match with the VGChartz data, I
                 created a dictionary to convert Metacritic’s platform data to match VGChartz. This cleaning was done in
                 the file combining_vgs.R.</p>
+            <h3> 2.2 Video Game Sales </h3>
+            <p>The website VGChartz provides sales data about the number of units of each game/platform
+                combination sold.
+                The information was contained in 1,249 web pages. Due to the extensive nature of the data, I decided to
+                break the web crawling results into six different CSV files (VGChartz_0 – 5.csv), all contained in the
+                project folder. The web crawling script is contained in the vgchartz.R file in the project folder.
+                I collected the game, platform, release date, publisher, and sales data from PAL, Japan, and North
+                America as well as total game sales for 62,398 games. Like the Metacritic data, some of these games
+                were released on multiple platforms, which count as a unique observation in the data. Another
+                interesting thing to note is that series were counted in this data frame alongside their individual
+                counterparts. For example, Super Mario is counted as a series, but each entry in the series is also
+                contained in the dataset. This was handled in the cleaning of the data.
+                In cleaning the data, I merged all six VGChartz .csv files into one complete file using row bind to build a
+                complete data frame. I also removed unnecessary columns, trimmed the white space on the title, and
+                returned only the distinct values of the dataset. When I read the CSV into the script, I created NA values
+                where data was missing. I also removed the game series by filtering them out during data cleaning. This
+                cleaning was done in the file combining_vgs.R.</p>
+            <h3> 2.3 Combining Reviews and Sales </h3>
+            <p>Since both data sets included the same game title multiple times based on the platform, I had to merge
+                based on both the game title and platform. Both data sets are also vastly different in the number of
+                observations. I decided to create two separate data sets in merging. One data set is the intersection of
+                the data and only contains data that appears in both data sets. The other data set, called the union,
+                contains all rows from both data sets. All this work was done in the combining_vgs.R file in the project
+                folder. Next I imported both data frames into the cleaning_vgs.R file in the project folder for further
+                cleaning.
+                Since the differentiator between both data frames is their number of rows and most of my cleaning was
+                regarding the columns, I created a function to iterate over both data sets to clean them. This cleaning
+                included trimming the white space on the summary and publisher, turning the sales data into numeric,
+                and adding the platform, publisher, and title as factors. I also turned all the release dates into a “Month,
+                Year” format and combined the release date from VGChartz and Metacritic into one column. Next, I
+                dropped all sales data except North America sales and total sales. I also dropped the extra release date
+                column, and the index columns. I exported these datasets to VGSales_union.csv and
+                VGSales_intersect.csv, respectively. The union had 68,288 observations, and the intersect had 12,288
+                observations. A description of each variable is contained in Table 1.</p>
         </section>
         <section id=“analysis”></section>
         <section id=“conclusion”></section>
