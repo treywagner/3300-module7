@@ -77,6 +77,78 @@
                 VGSales_intersect.csv, respectively. The union had 68,288 observations, and the intersect had 12,288
                 observations. A description of each variable is contained in Table 1.</p>
         </section>
+
+        <p class="table-label"> Table 1 Data Dictionary</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Column</th>
+          <th>Type</th>
+          <th>Source</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>game_title</td>
+          <td>Text</td>
+          <td>both</td>
+          <td>Title of game</td>
+        </tr>
+        <tr>
+          <td>platform</td>
+          <td>Text</td>
+          <td>both</td>
+          <td>Abbreviation of the video game console used to play the game</td>
+        </tr>
+        <tr>
+          <td>publisher</td>
+          <td>Text</td>
+          <td>VGChartz</td>
+          <td>The publisher of the video game</td>
+        </tr>
+        <tr>
+          <td>na_sales</td>
+          <td>Numeric</td>
+          <td>VGChartz</td>
+          <td>The number of units sold in North America</td>
+        </tr>
+        <tr>
+          <td>total_sales</td>
+          <td>Numeric</td>
+          <td>VGChartz</td>
+          <td>The total number of units sold worldwide</td>
+        </tr>
+
+        <tr>
+          <td>summary</td>
+          <td>Text</td>
+          <td>Metacritic</td>
+          <td>A description of the video game</td>
+        </tr>
+
+        <tr>
+          <td>release_date</td>
+          <td>Date</td>
+          <td>both</td>
+          <td>The month and year that the game was released</td>
+        </tr>
+
+        <tr>
+          <td>meta_score</td>
+          <td>Numeric</td>
+          <td>Metacritic</td>
+          <td>The review score as decided on by game critics</td>
+        </tr>
+        <tr>
+          <td>user_score</td>
+          <td>Numeric</td>
+          <td>Metacritic</td>
+          <td>The review score as decided on by the users of Metacritic</td>
+        </tr>
+      </tbody>
+    </table>
+
         <section id=“analysis”>
             <h2> 3. Analysis </h2>
             <h3> 3.1 Video Game Ratings and Sales </h3>
@@ -128,6 +200,116 @@
                 sales’ sum, and the number of games each publisher has released. To find the publishers with the
                 highest sales, I took a slice_max of the data frame based on the total sales. The result appears in Table 2.
                 The information is also saved in the publisher_sales.csv file in the project folder.
+
+                <p class="table-label"> Table 2 Slice Max Summary</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>publisher</th>
+          <th>total_sales</th>
+          <th>na_sales</th>
+          <th>user_score</th>
+          <th>meta_score</th>
+          <th>number of games</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Nintendo</td>
+          <td>1915460000</td>
+          <td>859150000</td>
+          <td>7.86772727272727</td>
+          <td>77.3954545454545</td>
+          <td>1410</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Activision</td>
+          <td>727710000</td>
+          <td>428300000</td>
+          <td>6.80404858299595</td>
+          <td>70.9635627530364</td>
+          <td>1567</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Electronic Arts</td>
+          <td>659150000</td>
+          <td>329130000</td>
+          <td>6.94391891891892</td>
+          <td>73.8192567567568</td>
+          <td>1591</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Sony Computer Entertainment</td>
+          <td>557090000</td>
+          <td>239880000</td>
+          <td>7.54783950617284</td>
+          <td>74.9845679012346</td>
+          <td>1365</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Ubisoft</td>
+          <td>500080000</td>
+          <td>260830000</td>
+          <td>7.00683012259194</td>
+          <td>70.7302977232925</td>
+          <td>1646</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>EA Sports</td>
+          <td>497620000</td>
+          <td>276250000</td>
+          <td>6.72665036674817</td>
+          <td>79.1075794621027</td>
+          <td>800</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>THQ</td>
+          <td>339470000</td>
+          <td>208390000</td>
+          <td>7.26092715231788</td>
+          <td>69.0794701986755</td>
+          <td>1092</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Sega</td>
+          <td>291080000</td>
+          <td>119560000</td>
+          <td>7.35538116591928</td>
+          <td>72.2959641255605</td>
+          <td>2191</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Capcom</td>
+          <td>274690000</td>
+          <td>104710000</td>
+          <td>7.58064516129032</td>
+          <td>74.7507331378299</td>
+          <td>1062</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Rockstar Games</td>
+          <td>263430000</td>
+          <td>125600000</td>
+          <td>7.75555555555556</td>
+          <td>82.9506172839506</td>
+          <td>175</td>
+        </tr>
+      </tbody>
+    </table>
+
                 I noticed that all but one publisher released at least 800 games. I calculated the correlation between the
                 total sales and the number of games a publisher had released. The coefficient of correlation between
                 these two variables was .715, which demonstrates a strong correlation between the number of games
@@ -163,6 +345,71 @@
                 60% of the total sales numbers. More details can be found in the top_10_NA and top_10_total data
                 frames. The top ten publishers appear in Table 3.
             </p>
+
+            <p class="table-label"> Table 3 Top publishers by North American sales vs. top publishers by total sales</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>North American games sold</th>
+          <th>Total games sold</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Nintendo</td>
+          <td>Nintendo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Activision</td>
+          <td>Activision</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Electronic Arts</td>
+          <td>Electronic Arts</td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td>EA Sports</td>
+          <td>Sony Computer Entertainment</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Ubisoft</td>
+          <td>Ubisoft</td>
+        </tr>
+        <td>6</td>
+        <td>Sony Computer Entertainment</td>
+        <td>EA Sports</td>
+
+        <tr>
+          <td>7</td>
+          <td>THQ</td>
+          <td>THQ</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Rockstar Games</td>
+          <td>Sega</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Sega</td>
+          <td>Capcom</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Capcom</td>
+          <td>Rockstar Games</td>
+        </tr>
+      </tbody>
+    </table>
+
             <h3> 3.3 Release Date </h3>
             <p>To determine how sales, number of games released, and review scores have changed, I created a data
                 frame called by_month, which grouped the games by month and calculated the average review scores,
